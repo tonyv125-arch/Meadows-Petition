@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Meadows Resident Petition & Rent Escrow Notice</title>
+<style>
+:root {
+--bg-dark: #0f172a;
+--card-dark: #1e293b;
+--primary: #1b365d;
+--accent-blue: #2563eb;
+--accent-green: #10b981;
+--warning-bg: #fffbeb;
+--warning-border: #f59e0b;
+--light: #f8fafc;
+--dark-text: #1e293b;
+--border: #cbd5e1;
+}
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: #e2e8f0;
+color: var(--dark-text);
+line-height: 1.6;
+padding: 15px;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+background: #ffffff;
+border-radius: 12px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+overflow: hidden;
+}
+/* Top Dashboard Card */
+.dashboard-header {
+background-color: var(--bg-dark);
+color: #ffffff;
+padding: 24px 20px;
+}
+.brand-row {
+display: flex;
+align-items: center;
+gap: 14px;
+margin-bottom: 16px;
+}
+.badge-tm {
+background-color: var(--accent-blue);
+color: white;
+font-weight: 800;
+font-size: 1.1rem;
+width: 48px;
+height: 48px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+.brand-title h1 {
+font-size: 1.25rem;
+line-height: 1.25;
+margin-bottom: 4px;
+}
+.brand-title p {
+font-size: 0.85rem;
+color: #94a3b8;
+}
+.progress-pill {
+background-color: rgba(16, 185, 129, 0.15);
+border: 1px solid rgba(16, 185, 129, 0.4);
+border-radius: 999px;
+padding: 10px 16px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 14px;
+}
+.progress-label {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 0.9rem;
+color: #a7f3d0;
+font-weight: 600;
+}
+.dot-live {
+width: 8px;
+height: 8px;
+background-color: var(--accent-green);
+border-radius: 50%;
+display: inline-block;
+}
+.progress-numbers {
+font-weight: 800;
+font-size: 1rem;
+color: #ffffff;
+}
+.dashboard-actions {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin-bottom: 10px;
+}
+.btn-dash {
+border: none;
+border-radius: 8px;
+padding: 12px;
+font-size: 0.9rem;
+font-weight: 700;
+cursor: pointer;
+text-align: center;
+transition: opacity 0.2s;
+}
+.btn-dash:hover {
+opacity: 0.9;
+}
+.btn-green {
+background-color: var(--accent-green);
+color: #ffffff;
+}
+.btn-slate {
+background-color: var(--card-dark);
+color: #ffffff;
+border: 1px solid #334155;
+}
+.btn-blue-full {
+width: 100%;
+background-color: var(--accent-blue);
+color: #ffffff;
+}
+/* Main Content */
+.content {
+background-color: #ffffff;
+color: var(--dark-text);
+padding: 25px 20px;
+}
+.notice-box {
+background: var(--warning-bg);
+border-left: 5px solid var(--warning-border);
+padding: 15px;
+margin-bottom: 24px;
+font-size: 0.92rem;
+border-radius: 6px;
+color: #78350f;
+}
+section {
+margin-bottom: 25px;
+}
+h2 {
+font-size: 1.15rem;
+color: var(--primary);
+border-bottom: 2px solid var(--primary);
+padding-bottom: 6px;
+margin-bottom: 12px;
+}
+ul {
+margin-left: 20px;
+margin-bottom: 15px;
+}
+li {
+margin-bottom: 8px;
+font-size: 0.95rem;
+}
+.form-group {
+margin-bottom: 18px;
+}
+label {
+display: block;
+font-weight: 700;
+margin-bottom: 6px;
+color: var(--primary);
+font-size: 0.95rem;
+}
+input[type="text"], input[type="tel"], input[type="email"] {
+width: 100%;
+padding: 12px;
+border: 1px solid var(--border);
+border-radius: 6px;
+font-size: 1rem;
+background: #f8fafc;
+}
+input:focus {
+outline: none;
+border-color: var(--accent-blue);
+background: #ffffff;
+}
+.checkbox-group {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+margin-bottom: 20px;
+background: var(--light);
+padding: 15px;
+border: 1px solid var(--border);
+border-radius: 6px;
+}
+.checkbox-group input {
+margin-top: 3px;
+width: 20px;
+height: 20px;
+flex-shrink: 0;
+}
+.signature-pad-container {
+border: 2px dashed #94a3b8;
+border-radius: 6px;
+background: #ffffff;
+margin-bottom: 8px;
+position: relative;
+}
+canvas {
+width: 100%;
+height: 170px;
+display: block;
+touch-action: none;
+cursor: crosshair;
+}
+.sig-actions {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+.btn-submit {
+background-color: var(--primary);
+color: white;
+border: none;
+padding: 14px 20px;
+font-size: 1.05rem;
+font-weight: 700;
+border-radius: 8px;
+cursor: pointer;
+width: 100%;
+}
+.btn-submit:hover {
+background-color: #11223f;
+}
+button.secondary {
+background-color: #64748b;
+color: white;
+border: none;
+border-radius: 6px;
+padding: 8px 14px;
+font-size: 0.85rem;
+font-weight: 600;
+cursor: pointer;
+}
+/* Organizer Drawer / Section */
+.admin-panel {
+margin-top: 35px;
+border-top: 2px dashed var(--border);
+padding-top: 20px;
+}
+.sig-list {
+max-height: 220px;
+overflow-y: auto;
+background: var(--light);
+padding: 12px;
+border-radius: 6px;
+border: 1px solid var(--border);
+font-size: 0.88rem;
+margin-bottom: 15px;
+}
+.sig-item {
+padding: 8px 0;
+border-bottom: 1px solid #e2e8f0;
+}
+.sig-item:last-child {
+border-bottom: none;
+}
+.share-box {
+display: none;
+background: #f1f5f9;
+border: 1px solid #cbd5e1;
+border-radius: 8px;
+padding: 15px;
+margin-top: 12px;
+font-size: 0.88rem;
+color: #1e293b;
+}
+@media print {
+.dashboard-actions, form, .secondary, .share-box {
+display: none !important;
+}
+body {
+background: #ffffff;
+padding: 0;
+}
+.container {
+box-shadow: none;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="dashboard-header">
+<div class="brand-row">
+<div class="badge-tm">TM</div>
+<div class="brand-title">
+<h1>The Meadows Resident Petition</h1>
+<p>9127 MN-25, Monticello, MN 55362 • Lakeshore Management</p>
+</div>
+</div>
+
+<div class="progress-pill">
+<span class="progress-label"><span class="dot-live"></span> Signatures Collected:</span>
+<span class="progress-numbers" id="topCounter">0 / 1,000</span>
+</div>
+
+<div class="dashboard-actions">
+</div>
+
+<div class="content">
+<div class="notice-box">
+<strong>LAKESHORE MANAGEMENT THIS IS A NOTICE OF COLLECTIVE ACTION & RENT ESCROW:</strong> We, the undersigned residents and lot leaseholders, formally unite under <strong>Minnesota Statute § 327C</strong> to demand immediate action on health, safety, and maintenance failures. If unresolved after 30 days, residents intend to initiate a court-supervised rent escrow.
+</div>
+
+<section>
+<h2>Documented Community Grievances</h2>
+<ul>
+<li><strong>Water Quality & Infrastructure:</strong> Foul-smelling water, frequent main line shutoffs, boil water advisories, and the removal of provided 5-gallon bottled water service.</li>
+<li><strong>Sewage Hazards:</strong> Active sewage leakage issues on property grounds posing health risks.</li>
+<li><strong>Unreasonable Rent Hikes:</strong> Consecutive lot rent increases exceeding $120 over the last 2 years without corresponding infrastructure improvements.</li>
+<li><strong>Unequal Rule Enforcement:</strong> Arbitrary and inconsistent enforcement of community rules regarding boats, trailers, RVs, and yard equipment/toys.</li>
+</ul>
+</section>
+
+<form id="petitionForm">
+<div class="form-group">
+<label for="fullName">Full Printed Name *</label>
+<input type="text" id="fullName" required placeholder="Enter your full legal name">
+</div>
+
+<div class="form-group">
+<label for="lotNumber">Lot Number *</label>
+<input type="text" id="lotNumber" required placeholder="e.g., Lot 123">
+</div>
+
+<div class="form-group">
+<label for="phone">Phone Number *</label>
+<input type="tel" id="phone" required placeholder="e.g., (612) 555-1234">
+</div>
+
+<div class="form-group">
+<label for="email">Email Address *</label>
+<input type="email" id="email" required placeholder="e.g., resident@email.com">
+</div>
+
+<div class="checkbox-group">
+<input type="checkbox" id="agreement" required>
+<label for="agreement" style="font-weight: normal; font-size: 0.9rem; color: #1e293b;">
+I agree to join this collective resident petition and demand immediate remediation. I understand that if demands are unmet after 14 days, this action supports pursuing statutory remedies including code complaints and court-supervised rent escrow.
+</label>
+</div>
+
+<div class="form-group">
+<label>Digital Signature *</label>
+<div class="signature-pad-container">
+<canvas id="sigCanvas"></canvas>
+</div>
+<div class="sig-actions">
+<button type="button" class="secondary" id="clearSig">Clear Signature</button>
+<span id="sigStatus" style="font-size: 0.85rem; color: #64748b;">Sign with finger or mouse above</span>
+</div>
+</div>
+
+<button type="submit" class="btn-submit">Submit & Sign Petition</button>
+</form>
+
+<div class="admin-panel" id="signaturesSection">
+<h2>Recorded Signatures on This Device</h2>
+<div class="sig-list" id="sigListDisplay">
+<em>No signatures recorded on this device yet.</em>
+</div>
+<div style="display: flex; gap: 10px;">
+<button type="button" class="secondary" id="exportCsvOnly" style="background-color: #10b981; flex: 1;">Download CSV Spreadsheet</button>
+<button type="button" class="secondary" id="printPacketBtn" style="background-color: #1b365d; flex: 1;">Print / Save PDF Packet</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeSwjJ2Hcr0DeD7_ukpo7vY5o5xRlocHOaWXe3xSC6_hGDuhg/formResponse';
+const ENTRY_NAME = 'entry.1048358385';
+const ENTRY_LOT = 'entry.1736921770';
+const ENTRY_CONTACT = 'entry.625035321';
+
+const canvas = document.getElementById('sigCanvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+let hasSigned = false;
+
+function resizeCanvas() {
+const ratio = Math.max(window.devicePixelRatio || 1, 1);
+const rect = canvas.getBoundingClientRect();
+canvas.width = rect.width * ratio;
+canvas.height = rect.height * ratio;
+ctx.scale(ratio, ratio);
+ctx.lineWidth = 2.2;
+ctx.lineCap = 'round';
+ctx.strokeStyle = '#0f172a';
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function getPos(e) {
+const rect = canvas.getBoundingClientRect();
+const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+const clientY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+return {
+x: clientX - rect.left,
+y: clientY - rect.top
+};
+}
+
+function startDrawing(e) {
+isDrawing = true;
+const pos = getPos(e);
+ctx.beginPath();
+ctx.moveTo(pos.x, pos.y);
+e.preventDefault();
+}
+
+function draw(e) {
+if (!isDrawing) return;
+const pos = getPos(e);
+ctx.lineTo(pos.x, pos.y);
+ctx.stroke();
+hasSigned = true;
+document.getElementById('sigStatus').innerText = "Signature captured";
+document.getElementById('sigStatus').style.color = "#10b981";
+e.preventDefault();
+}
+
+function stopDrawing() {
+if (isDrawing) {
+isDrawing = false;
+ctx.closePath();
+}
+}
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseleave', stopDrawing);
+
+canvas.addEventListener('touchstart', startDrawing, { passive: false });
+canvas.addEventListener('touchmove', draw, { passive: false });
+canvas.addEventListener('touchend', stopDrawing);
+
+document.getElementById('clearSig').addEventListener('click', () => {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+hasSigned = false;
+document.getElementById('sigStatus').innerText = "Sign with finger or mouse above";
+document.getElementById('sigStatus').style.color = "#64748b";
+});
+
+const STORAGE_KEY = 'the_meadows_petition_signatures_v3';
+
+function getStoredSignatures() {
+try {
+const data = localStorage.getItem(STORAGE_KEY);
+return data ? JSON.parse(data) : [];
+} catch (e) {
+return [];
+}
+}
+
+function escapeHtml(str) {
+return String(str)
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;");
+}
+
+function updateDashboard() {
+const sigs = getStoredSignatures();
+document.getElementById('topCounter').innerText = `${sigs.length} / 1,000`;
+const btnSigCount = document.getElementById('btnSigCount');
+if (btnSigCount) btnSigCount.innerText = sigs.length;
+
+const listDisplay = document.getElementById('sigListDisplay');
+if (sigs.length === 0) {
+listDisplay.innerHTML = '<em>No signatures recorded on this device yet.</em>';
+return;
+}
+listDisplay.innerHTML = sigs.map((s, idx) =>
+`<div class="sig-item"><strong>${idx + 1}. ${escapeHtml(s.name)}</strong> — Lot ${escapeHtml(s.lot)}<br><span style="color:#475569;">Phone: ${escapeHtml(s.phone)} | Email: ${escapeHtml(s.email)} | ${escapeHtml(s.date)}</span></div>`
+).join('');
+}
+
+async function syncToGoogleForm(name, lot, phone, email) {
+const formData = new URLSearchParams();
+formData.append(ENTRY_NAME, name);
+formData.append(ENTRY_LOT, lot);
+formData.append(ENTRY_CONTACT, `${phone} | ${email}`);
+
+await fetch(GOOGLE_FORM_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+},
+body: formData.toString()
+});
+}
+
+document.getElementById('petitionForm').addEventListener('submit', async function(e) {
+e.preventDefault();
+if (!hasSigned) {
+alert('Please provide your digital signature before submitting.');
+return;
+}
+
+const name = document.getElementById('fullName').value.trim();
+const lot = document.getElementById('lotNumber').value.trim();
+const phone = document.getElementById('phone').value.trim();
+const email = document.getElementById('email').value.trim();
+const signatureData = canvas.toDataURL();
+const timestamp = new Date().toLocaleString();
+
+try {
+await syncToGoogleForm(name, lot, phone, email);
+} catch (err) {
+// Still save locally if offline
+}
+
+const sigs = getStoredSignatures();
+sigs.push({ name, lot, phone, email, signature: signatureData, date: timestamp });
+localStorage.setItem(STORAGE_KEY, JSON.stringify(sigs));
+
+alert(`Thank you, ${name}! Your signature for Lot ${lot} has been recorded.`);
+
+this.reset();
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+hasSigned = false;
+document.getElementById('sigStatus').innerText = "Sign with finger or mouse above";
+document.getElementById('sigStatus').style.color = "#64748b";
+
+updateDashboard();
+});
+
+function exportCSV() {
+const sigs = getStoredSignatures();
+if (sigs.length === 0) {
+alert('No signatures recorded yet to export.');
+return;
+}
+let csv = "Full Name,Lot Number,Phone Number,Email Address,Date Signed\n";
+sigs.forEach(s => {
+csv += `"${s.name.replace(/"/g, '""')}","${s.lot.replace(/"/g, '""')}","${s.phone.replace(/"/g, '""')}","${s.email.replace(/"/g, '""')}","${s.date}"\n`;
+});
+const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+const url = URL.createObjectURL(blob);
+const link = document.createElement("a");
+link.href = url;
+link.download = "the_meadows_petition_signatures.csv";
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
+URL.revokeObjectURL(url);
+}
+
+const toggleShareBtn = document.getElementById('toggleShareBtn');
+if (toggleShareBtn) {
+toggleShareBtn.addEventListener('click', () => {
+const box = document.getElementById('shareBox');
+if (box) box.style.display = box.style.display === 'block' ? 'none' : 'block';
+});
+}
+
+const jumpSigsBtn = document.getElementById('jumpSigsBtn');
+if (jumpSigsBtn) {
+jumpSigsBtn.addEventListener('click', () => {
+document.getElementById('signaturesSection').scrollIntoView({ behavior: 'smooth' });
+});
+}
+
+const exportPacketBtn = document.getElementById('exportPacketBtn');
+if (exportPacketBtn) exportPacketBtn.addEventListener('click', exportCSV);
+
+document.getElementById('exportCsvOnly').addEventListener('click', exportCSV);
+document.getElementById('printPacketBtn').addEventListener('click', () => window.print());
+
+updateDashboard();
+</script>
+
+</body>
+</html>
